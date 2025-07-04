@@ -1,7 +1,6 @@
 
      
     package com.vetias.java.workshop.tempdata;
-;{
 
 public class Academic {
     private String name;
@@ -32,7 +31,5 @@ public class Academic {
         this.designation = aDesignation;
     }
     
-
-}
 
 }
