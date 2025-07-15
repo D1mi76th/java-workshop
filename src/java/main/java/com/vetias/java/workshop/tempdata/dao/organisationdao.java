@@ -1,4 +1,4 @@
-package com.vetias.java.workshop.tempdata.dao;
+package src.java.main.java.com.vetias.java.workshop.tempdata.dao;
 
 import com.vetias.java.workshop.tempdata.model.Organisation;
 import java.sql.Connection;
@@ -46,5 +46,30 @@ public class OrganisationDao {
     }
            return 0;
 }           
+        public class OrganisationDAO{
+            public Organisation findByName(Connection dbConnection, String name) {
+                Organisation organisation = null;
+                try (PreparedStatement preparedStatement = dbConnection.prepareStatement("""
+                        select * from organisation where name = ?;
+                        """)) {
+                    preparedStatement.setString(1, name);
+                    ResultSet resultSet = preparedStatement.executeQuery();
+                    if (resultSet.next()) {
+                        organisation = new Organisation(
+                                resultSet.getInt("id"),
+                                resultSet.getString("name"),
+                                resultSet.getString("website"),
+                                resultSet.getString("email"),
+                                resultSet.getString("contact_number"),
+                                resultSet.getInt("registration_no"),
+                                resultSet.getString("description")
+                        );
+                    }
+                } catch (SQLException sqlException) {
+                    System.out.println("Error finding organisation by name: " + sqlException.getMessage());
+                }
+                return organisation;
+            }
+        }
 }
 
