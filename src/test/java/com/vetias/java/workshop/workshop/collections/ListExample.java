@@ -12,7 +12,7 @@ public class ListExample {
     names.add("Chedi");
 
     System.out.println(names);
-    name.set(1, "Bobby");
+    names.set(1, "Bobby");
     for (int i = 0; i < names.size(); i++) {
         System.out.println(names.get(i));
     }

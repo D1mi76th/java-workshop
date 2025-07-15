@@ -1,6 +1,6 @@
 package src.com.vetias.java.workshop.workshop.basics.string;
 
-public class Untitled-2 {
+public class Untitled2 {
 
 public static void main(String[] args) {
     String str = "Hello, World!";
@@ -14,4 +14,5 @@ public static void main(String[] args) {
     String upperCaseStr = str.toUpperCase();
     System.out.println("Uppercase String: " + upperCaseStr); // Output: HELLO, WORLD!
     
+}
 }
