@@ -1,5 +1,7 @@
 package com.vetias.java.workshop.tempdata.employee;
 
+import java.util.Arrays;
+
 public class employee {
 
     public static void main(String[] args) {
@@ -17,6 +19,7 @@ public class employee {
     employees[5][0] = "04411";
     for (String[] employee : employees) {
         
-        System.out.println(Arrays .toString(employee));
+        System.out.println(Arrays.toString(employee));
     }
+  }
 }
