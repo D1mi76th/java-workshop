@@ -1,7 +1,10 @@
 package com.vetias.java.workshop.tempdata.dao;
 
-
-
+import com.vetias.java.workshop.tempdata.model.Organisation;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.Statement;
+import java.sql.SQLException;
 
 import org.h2.jdbcx.JdbcDataSource;
 public class OrganisationDao {
@@ -19,7 +22,7 @@ public class OrganisationDao {
                     CONTACT_NUMBER VARCHAR(100),
                     REGISTRATION_NO INT,)
                     """);
-    }catch (SQLException sqlException) {
+         }catch (SQLException sqlException) {
         System.out.println("Error creating table: " + sqlException.getMessage());
         // TODO: handle exception
     }
@@ -28,18 +31,20 @@ public class OrganisationDao {
                 insert into orgainsation(name, website, email, contact_number, registration_no, description)
                 values(?,?,?,?,?,?);
                 """)){
-                    preparedStatement.setString(parameterIndex:1,vet.name());
-                    preparedStatement.setString(parameterIndex:2,vet.website());
-                    preparedStatement.setString(parameterIndex:3,vet.email());  
-                    preparedStatement.setString(parameterIndex:4,vet.contactNumber());
-                    preparedStatement.setInt(parameterIndex:5,vet.registrationNo());
-                    preparedStatement.setString(parameterIndex:6,vet.description());
+                    preparedStatement.setString(1,vet.name());
+                    preparedStatement.setString(2,vet.website());
+                    preparedStatement.setString(3,vet.email());  
+                    preparedStatement.setString(4,vet.contactNumber());
+                    preparedStatement.setInt(5,vet.registrationNo());
+                    preparedStatement.setString(6,vet.description());
                     preparedStatement.executeUpdate();
                 } 
                 
-    }catch (SQLException sqlExpection){
-        System.out.println("Error inserting into table:" + sqlExpection.getMessage());
+        catch (SQLException sqlExpection){
+       System.out.println("Error inserting into table:" + sqlExpection);
+        }
     }
+           return 0;
+}           
 }
-        return 0; 
-}
+
